@@ -2,7 +2,11 @@ package com.example.billy.stockwatcher.presentation.view.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.example.billy.stockwatcher.CustomApplication
+import com.example.billy.stockwatcher.R
 import com.example.billy.stockwatcher.model.entities.DetailsModel
 import com.example.billy.stockwatcher.model.entities.User
 import com.example.billy.stockwatcher.presentation.view.DetailView
@@ -24,6 +28,10 @@ class DetailsFragment : Fragment(), DetailView {
         }
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_details, container, false)
+    }
+
     override fun showDetails(detailsModel: DetailsModel) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -38,6 +46,12 @@ class DetailsFragment : Fragment(), DetailView {
 
     override fun hideLoading() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    // This logic is needed to show the content only after the shared transition has finished
+    fun transitionEnded() {
+        transitionEnded = true
+
     }
 
 }
