@@ -6,5 +6,5 @@ interface UserListView {
     fun showLoading()
     fun hideLoading()
     fun addUsersToList(users: List<User>)
-    fun showError()
+    fun showError(message:String)
 }

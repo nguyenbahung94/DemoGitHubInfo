@@ -1,10 +1,10 @@
-/*
 package com.example.billy.stockwatcher.model
 
 import com.example.billy.stockwatcher.model.entities.*
 import com.example.billy.stockwatcher.model.service.QuestionService
 import com.example.billy.stockwatcher.model.service.UserService
 import io.reactivex.Single
+import io.reactivex.functions.Function3
 
 class UserRepository(
         private val userService: UserService,
@@ -14,14 +14,19 @@ class UserRepository(
 
     fun getDetails(userId: Long): Single<DetailsModel> {
         return Single.zip(
+                userService.getQuestionsByUser(userId),
+                getAnswers(userId),
                 userService.getFavoritesByUser(userId),
-
-                )
+                Function3<QuestionListModel, List<AnswerViewModel>, QuestionListModel, DetailsModel> { questions, answers, favorites ->
+                    createDetailModel(questions, answers, favorites)
+                }
+        )
     }
 
     private fun getAnswers(userId: Long): Single<List<AnswerViewModel>> {
         return userService.getAnswersByUser(userId)
                 .flatMap { answerList: AnswerListModel ->
+                    mapAnswersToAnswerViewModels(answerList.items)
                 }
     }
 
@@ -38,6 +43,7 @@ class UserRepository(
 
         return questionListModel
                 .map { questionListModel: QuestionListModel? ->
+                    addTitlesToAnswers(processedAnswers, questionListModel?.items ?: emptyList())
                 }
     }
 
@@ -50,7 +56,8 @@ class UserRepository(
 
     private fun createDetailModel(questionModel: QuestionListModel, answerViewModel: List<AnswerViewModel>,
                                   favoritesModel: QuestionListModel): DetailsModel {
-        val
-
+        val questions = questionModel.items.take(3)
+        val favorites = favoritesModel.items.takeLast(3)
+        return DetailsModel(questions, answerViewModel, favorites)
     }
-}*/
+}

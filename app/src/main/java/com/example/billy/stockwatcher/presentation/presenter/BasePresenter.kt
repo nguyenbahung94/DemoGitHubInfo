@@ -1,4 +1,4 @@
-package com.example.billy.stockwatcher.presentation.base
+package com.example.billy.stockwatcher.presentation.presenter
 
 /*
 *  * Helper class for MVP pattern

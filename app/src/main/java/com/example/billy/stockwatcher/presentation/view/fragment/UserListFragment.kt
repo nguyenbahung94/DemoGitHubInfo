@@ -2,9 +2,10 @@ package com.example.billy.stockwatcher.presentation.view.fragment
 
 import android.support.v4.app.Fragment
 import com.example.billy.stockwatcher.model.entities.User
+import com.example.billy.stockwatcher.presentation.presenter.UserListPresenter
 import com.example.billy.stockwatcher.presentation.view.UserListView
 
-class UserListFragment:Fragment(),UserListView{
+class UserListFragment : Fragment(), UserListView {
     override fun showLoading() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -17,7 +18,7 @@ class UserListFragment:Fragment(),UserListView{
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun showError() {
+    override fun showError(message: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

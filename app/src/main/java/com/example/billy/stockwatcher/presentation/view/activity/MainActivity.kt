@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        addUserListFragment()
     }
 
     private fun addUserListFragment() {
@@ -39,7 +40,9 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.fragmentContainer, fragment)
                 .addToBackStack("")
         isLollipopOrAbove {
+            setUpTransition(fragment, transitioningView, transaction)
         }
+        transaction.commit()
     }
 
     @SuppressLint("NewApi")

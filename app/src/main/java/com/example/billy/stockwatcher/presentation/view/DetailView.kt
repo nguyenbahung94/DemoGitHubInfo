@@ -4,7 +4,7 @@ import com.example.billy.stockwatcher.model.entities.DetailsModel
 
 interface DetailView {
     fun showDetails(detailsModel: DetailsModel)
-    fun showError()
+    fun showError(message:String)
     fun showLoading()
     fun hideLoading()
 }
