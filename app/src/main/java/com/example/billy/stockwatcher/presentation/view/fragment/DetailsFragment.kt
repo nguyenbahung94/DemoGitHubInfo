@@ -1,6 +1,5 @@
 package com.example.billy.stockwatcher.presentation.view.fragment
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -9,8 +8,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.example.billy.stockwatcher.CustomApplication
 import com.example.billy.stockwatcher.R
 import com.example.billy.stockwatcher.di.modules.DetailFragmentModule
 import com.example.billy.stockwatcher.model.entities.DetailsModel

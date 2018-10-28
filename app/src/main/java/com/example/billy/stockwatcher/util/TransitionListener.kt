@@ -10,23 +10,23 @@ import android.transition.Transition
 @SuppressLint("NewApi")
 open class TransitionListener : Transition.TransitionListener {
     override fun onTransitionEnd(p0: Transition?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //do something
     }
 
     override fun onTransitionResume(p0: Transition?) {
-        TODO("not implemented") //To change body of created functio ns use File | Settings | File Templates.
+        //do something
     }
 
     override fun onTransitionPause(p0: Transition?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //do something
     }
 
     override fun onTransitionCancel(p0: Transition?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //do something
     }
 
     override fun onTransitionStart(p0: Transition?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //do something
     }
 
 }
